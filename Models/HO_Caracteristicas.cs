@@ -8,5 +8,12 @@ namespace ExamenHansOrtiz.Models
 {
     public class HO_Caracteristicas
     {
+        public string Sentido {  get; set; }
+        public int carriles { get; set; }
+        public string TipoPavimento { get; set; }
+        public string EstadoVia {get; set; }
+        public int VelocidadMaxima { get; set; }
+        public bool TieneCicloruta { get; set; }
+        public double AnchoAceras { get; set; }
     }
 }
