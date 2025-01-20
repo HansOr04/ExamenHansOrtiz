@@ -12,4 +12,6 @@ namespace ExamenHansOrtiz.Models
         public string Tipo { get; set; }
         public string Ubicacion { get; set; }
     }
+
+    
 }

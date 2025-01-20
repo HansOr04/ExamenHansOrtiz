@@ -8,8 +8,8 @@ namespace ExamenHansOrtiz.Models
 {
     public class HO_Metadata
     {
-        public string FechaActualizacion {  get; set; }
+        public string FechaActualizacion { get; set; }
         public string FuenteDatos { get; set; }
-        public string Version {  get; set; }
+        public string Version { get; set; }
     }
 }

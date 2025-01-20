@@ -14,10 +14,11 @@ namespace ExamenHansOrtiz.Models
         public HO_Geometria Geometria { get; set; }
         public HO_Ubicacion Ubicacion { get; set; }
         public HO_Caracteristicas Caracteristicas { get; set; }
-
         public HO_Servicios Servicios { get; set; }
-        public List<HO_PuntoInteres> PuntoInteres { get; set; }
-        public HO_Matenimiento Matenimiento { get; set; }
+        public List<HO_PuntoInteres> PuntosInteres { get; set; }
+        public HO_Mantenimiento Mantenimiento { get; set; }
         public HO_Metadata Metadata { get; set; }
     }
+
+    
 }

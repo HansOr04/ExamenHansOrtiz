@@ -3,15 +3,86 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="ExamenHansOrtiz.Views.HO_CalleDetailPage"
              Title="HO_CalleDetailPage">
-    <StackLayout Padding="20">
-        <!-- Mostrar detalles de la calle -->
-        <Label Text="{Binding CalleSeleccionada.Nombre}" FontSize="Large" />
-        <Label Text="{Binding CalleSeleccionada.TipoVia}" FontSize="Medium" />
-        <Label Text="{Binding CalleSeleccionada.Ubicacion.Zona}" FontSize="Small" />
-        <Label Text="{Binding CalleSeleccionada.Caracteristicas.Sentido}" FontSize="Small" />
-        <Label Text="{Binding CalleSeleccionada.Caracteristicas.TipoPavimento}" FontSize="Small" />
+    <ScrollView>
+        <StackLayout Padding="20" Spacing="10">
 
-        <!-- Botón para guardar la calle -->
-        <Button Text="Guardar Calle" Command="{Binding GuardarCalleCommand}" />
-    </StackLayout>
+            <!-- Nombre y Tipo de Vía -->
+            <Label Text="{Binding CalleSeleccionada.Nombre}" FontSize="Large" FontAttributes="Bold" TextColor="Black" />
+            <Label Text="{Binding CalleSeleccionada.TipoVia}" FontSize="Medium" TextColor="Gray" />
+
+            <!-- Geometría -->
+            <Label Text="Geometría" FontSize="Medium" FontAttributes="Bold" TextColor="Black" />
+            <Label Text="{Binding CalleSeleccionada.Geometria.Longitud, StringFormat='Longitud: {0}'}" FontSize="Small" TextColor="Gray" />
+            <Label Text="{Binding CalleSeleccionada.Geometria.Latitud, StringFormat='Latitud: {0}'}" FontSize="Small" TextColor="Gray" />
+            <Label Text="{Binding CalleSeleccionada.Geometria.LongitudMetros, StringFormat='Longitud (metros): {0}'}" FontSize="Small" TextColor="Gray" />
+            <Label Text="{Binding CalleSeleccionada.Geometria.AnchuraMetros, StringFormat='Anchura (metros): {0}'}" FontSize="Small" TextColor="Gray" />
+
+            <!-- Ubicación -->
+            <Label Text="Ubicación" FontSize="Medium" FontAttributes="Bold" TextColor="Black" />
+            <Label Text="{Binding CalleSeleccionada.Ubicacion.Zona, StringFormat='Zona: {0}'}" FontSize="Small" TextColor="Gray" />
+            <Label Text="{Binding CalleSeleccionada.Ubicacion.Parroquia, StringFormat='Parroquia: {0}'}" FontSize="Small" TextColor="Gray" />
+            <Label Text="{Binding CalleSeleccionada.Ubicacion.Sector, StringFormat='Sector: {0}'}" FontSize="Small" TextColor="Gray" />
+            <Label Text="{Binding CalleSeleccionada.Ubicacion.DistritoMetropolitano, StringFormat='Distrito Metropolitano: {0}'}" FontSize="Small" TextColor="Gray" />
+            <Label Text="{Binding CalleSeleccionada.Ubicacion.CodigoPostal, StringFormat='Código Postal: {0}'}" FontSize="Small" TextColor="Gray" />
+
+            <!-- Características -->
+            <Label Text="Características" FontSize="Medium" FontAttributes="Bold" TextColor="Black" />
+            <Label Text="{Binding CalleSeleccionada.Caracteristicas.Sentido, StringFormat='Sentido: {0}'}" FontSize="Small" TextColor="Gray" />
+            <Label Text="{Binding CalleSeleccionada.Caracteristicas.Carriles, StringFormat='Carriles: {0}'}" FontSize="Small" TextColor="Gray" />
+            <Label Text="{Binding CalleSeleccionada.Caracteristicas.TipoPavimento, StringFormat='Tipo de Pavimento: {0}'}" FontSize="Small" TextColor="Gray" />
+            <Label Text="{Binding CalleSeleccionada.Caracteristicas.EstadoVia, StringFormat='Estado de la Vía: {0}'}" FontSize="Small" TextColor="Gray" />
+            <Label Text="{Binding CalleSeleccionada.Caracteristicas.VelocidadMaxima, StringFormat='Velocidad Máxima: {0} km/h'}" FontSize="Small" TextColor="Gray" />
+            <Label Text="{Binding CalleSeleccionada.Caracteristicas.TieneCicloruta, StringFormat='Cicloruta: {0}'}" FontSize="Small" TextColor="Gray" />
+            <Label Text="{Binding CalleSeleccionada.Caracteristicas.AnchoAceras, StringFormat='Ancho de Aceras: {0} metros'}" FontSize="Small" TextColor="Gray" />
+
+            <!-- Servicios -->
+            <Label Text="Servicios" FontSize="Medium" FontAttributes="Bold" TextColor="Black" />
+            <Label Text="{Binding CalleSeleccionada.Servicios.TransportePublico.TieneBus, StringFormat='Tiene Bus: {0}'}" FontSize="Small" TextColor="Gray" />
+            <Label Text="{Binding CalleSeleccionada.Servicios.TransportePublico.TieneTrolebus, StringFormat='Tiene Trolebús: {0}'}" FontSize="Small" TextColor="Gray" />
+            <Label Text="Paradas de Bus:" FontSize="Small" TextColor="Gray" />
+            <CollectionView ItemsSource="{Binding CalleSeleccionada.Servicios.TransportePublico.ParadasBus}">
+                <CollectionView.ItemTemplate>
+                    <DataTemplate>
+                        <Label Text="{Binding}" FontSize="Small" TextColor="Gray" />
+                    </DataTemplate>
+                </CollectionView.ItemTemplate>
+            </CollectionView>
+
+            <!-- Puntos de Interés -->
+            <Label Text="Puntos de Interés" FontSize="Medium" FontAttributes="Bold" TextColor="Black" />
+            <CollectionView ItemsSource="{Binding CalleSeleccionada.PuntosInteres}">
+                <CollectionView.ItemTemplate>
+                    <DataTemplate>
+                        <StackLayout Padding="10" BackgroundColor="LightGray" Margin="5">
+                            <Label Text="{Binding Nombre}" FontSize="Small" FontAttributes="Bold" TextColor="Black" />
+                            <Label Text="{Binding Tipo}" FontSize="Small" TextColor="Gray" />
+                            <Label Text="{Binding Ubicacion}" FontSize="Small" TextColor="Gray" />
+                        </StackLayout>
+                    </DataTemplate>
+                </CollectionView.ItemTemplate>
+            </CollectionView>
+
+            <!-- Mantenimiento -->
+            <Label Text="Mantenimiento" FontSize="Medium" FontAttributes="Bold" TextColor="Black" />
+            <Label Text="{Binding CalleSeleccionada.Mantenimiento.UltimaRepavimentacion, StringFormat='Última Repavimentación: {0}'}" FontSize="Small" TextColor="Gray" />
+            <Label Text="{Binding CalleSeleccionada.Mantenimiento.ProximoMantenimiento, StringFormat='Próximo Mantenimiento: {0}'}" FontSize="Small" TextColor="Gray" />
+            <Label Text="{Binding CalleSeleccionada.Mantenimiento.Responsable, StringFormat='Responsable: {0}'}" FontSize="Small" TextColor="Gray" />
+            <Label Text="{Binding CalleSeleccionada.Mantenimiento.TipoMantenimiento, StringFormat='Tipo de Mantenimiento: {0}'}" FontSize="Small" TextColor="Gray" />
+
+            <!-- Metadata -->
+            <Label Text="Metadata" FontSize="Medium" FontAttributes="Bold" TextColor="Black" />
+            <Label Text="{Binding CalleSeleccionada.Metadata.FechaActualizacion, StringFormat='Fecha de Actualización: {0}'}" FontSize="Small" TextColor="Gray" />
+            <Label Text="{Binding CalleSeleccionada.Metadata.FuenteDatos, StringFormat='Fuente de Datos: {0}'}" FontSize="Small" TextColor="Gray" />
+            <Label Text="{Binding CalleSeleccionada.Metadata.Version, StringFormat='Versión: {0}'}" FontSize="Small" TextColor="Gray" />
+
+            <!-- Botón para guardar la calle -->
+            <Button Text="Guardar Calle"
+                    Command="{Binding GuardarCalleCommand}"
+                    BackgroundColor="#4CAF50"
+                    TextColor="White"
+                    Padding="15"
+                    Margin="0,20,0,0" />
+
+        </StackLayout>
+    </ScrollView>
 </ContentPage>

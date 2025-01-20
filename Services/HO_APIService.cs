@@ -13,20 +13,26 @@ namespace ExamenHansOrtiz.Services
     {
         private readonly HttpClient _httpClient;
         private const string ApiUrl = "https://678dab63a64c82aeb11da64b.mockapi.io/CallesdeQuito";
-        public HO_APIService() { 
+
+        public HO_APIService()
+        {
             _httpClient = new HttpClient();
         }
+
         public async Task<List<HO_Calle>> GetCallesAsync()
         {
-            try {
+            try
+            {
                 var response = await _httpClient.GetStringAsync(ApiUrl);
                 var calles = JsonConvert.DeserializeObject<List<HO_Calle>>(response);
                 return calles;
-            } catch (Exception ex){
-                Console.WriteLine($"Error al obtener datos de la API:{ex.Message}");
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"Error al obtener datos de la API: {ex.Message}");
                 return new List<HO_Calle>();
-            
             }
         }
     }
 }
+

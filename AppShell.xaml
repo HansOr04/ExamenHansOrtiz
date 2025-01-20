@@ -1,15 +1,20 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <Shell
     x:Class="ExamenHansOrtiz.AppShell"
-    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
-    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-    xmlns:local="clr-namespace:ExamenHansOrtiz"
-    Shell.FlyoutBehavior="Disabled"
-    Title="ExamenHansOrtiz">
+xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:local="clr-namespace:ExamenHansOrtiz.Views"
+    Shell.FlyoutBehavior="Disabled">
+
+    <!-- Definir las rutas de navegación -->
+    <ShellContent
+        Title="Calles de Quito"
+        ContentTemplate="{DataTemplate local:HO_CallesPage}"
+        Route="HO_CallesPage" />
 
     <ShellContent
-        Title="Home"
-        ContentTemplate="{DataTemplate local:MainPage}"
-        Route="MainPage" />
+        Title="Calles Guardadas"
+        ContentTemplate="{DataTemplate local:HO_SavedCallesPage}"
+        Route="HO_SavedCallesPage" />
 
 </Shell>
