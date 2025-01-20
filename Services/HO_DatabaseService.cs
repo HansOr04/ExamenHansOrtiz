@@ -28,7 +28,7 @@ namespace ExamenHansOrtiz.Services
                 Console.WriteLine($"Error al guardar la calle{ex.Message}");
             }
         }
-        public async Task<List<HO_CalleLocal>> GetSavedCalleAsync()
+        public async Task<List<HO_CalleLocal>> GetSavedCallesAsync()
         {
             try
             {

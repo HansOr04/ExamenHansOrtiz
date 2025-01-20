@@ -24,7 +24,7 @@ namespace ExamenHansOrtiz.Models
         public string CaracteristicasTipoPavimento { get; set; }
         public string CaracteristicasEstadoVia { get; set; }
         public int CaracteristicasVelocidadMaxima { get; set; }
-        public bool CaracteristicasTieneCicloVia { get; set; }
+        public bool CaracteristicasTieneCicloruta { get; set; }
         public double CaracteristicasAnchoAceras {  get; set; }
 
     }
