@@ -22,7 +22,7 @@ namespace ExamenHansOrtiz.ViewModels
         }
 
         private async Task LoadCallesAsync()
-        {
+        { 
             var calles = await _apiService.GetCallesAsync();
             foreach (var calle in calles)
             {
