@@ -6,7 +6,8 @@ using System.Threading.Tasks;
 
 namespace ExamenHansOrtiz.Models
 {
-    internal class HO_CalleLocal
+    public class HO_CalleLocal
     {
+
     }
 }

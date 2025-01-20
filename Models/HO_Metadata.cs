@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace ExamenHansOrtiz.Models
 {
-    internal class HO_Metadata
+    public class HO_Metadata
     {
     }
 }

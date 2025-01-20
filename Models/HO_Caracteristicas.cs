@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace ExamenHansOrtiz.Models
 {
-    internal class HO_Caracteristicas
+    public class HO_Caracteristicas
     {
     }
 }
