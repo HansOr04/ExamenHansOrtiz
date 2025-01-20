@@ -40,6 +40,23 @@ namespace ExamenHansOrtiz.Services
                 return new List<HO_CalleLocal>();
             }
         }
+        public async Task DeleteCalleAsync(int localId)
+        {
+            try
+            {
+                var calle = await _database.Table<HO_CalleLocal>()
+                                           .Where(c => c.LocalId == localId)
+                                           .FirstOrDefaultAsync();
+                if (calle != null)
+                {
+                    await _database.DeleteAsync(calle);
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"Error al eliminar la calle: {ex.Message}");
+            }
+        }
 
     }
 }
