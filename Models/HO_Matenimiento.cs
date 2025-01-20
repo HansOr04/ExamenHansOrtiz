@@ -8,5 +8,9 @@ namespace ExamenHansOrtiz.Models
 {
     public class HO_Matenimiento
     {
+        public string UltimaRepavimentacion {  get; set; }
+        public string ProximoMantenimiento { get; set; }
+        public string Responsable { get; set; }
+        public string TipoMantenimiento { get; set; }
     }
 }
